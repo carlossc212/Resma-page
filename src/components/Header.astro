@@ -1,0 +1,53 @@
+---
+import Button from './Button.astro';
+---
+<div class="header">
+    <div class="logo">
+        <img src="/favicon.svg" alt="logo">
+    </div>
+    <ul class="links">
+        <li><a href="javascript:void(0)">Home</a></li>
+        <li><a href="javascript:void(0)">About</a></li>
+        <li><a href="javascript:void(0)">Services</a></li>
+        <li><a href="javascript:void(0)">Projects</a></li>
+    </ul>
+    <Button>Contact</Button>
+</div>
+
+<style>
+    .header {
+        background-color: rgb(100, 153, 189);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+        color: rgba(245, 245, 245, 0.9);
+        position: fixed;
+        width: 100%;
+        z-index: 99999999999;
+    }
+
+    .logo{
+        aspect-ratio: 1/1;
+        width: 70px;
+    }
+
+    .links {
+        display: block;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .links li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .links li a{
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: rgba(245, 245, 245, 0.9);
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.459);
+    }
+</style>

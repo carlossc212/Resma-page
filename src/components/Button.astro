@@ -1,0 +1,61 @@
+<button>
+    
+    <span class="text">
+        <slot />
+    </span>
+    <span class="fill fill-l"></span>
+    <span class="fill fill-r"></span>
+</button>
+
+<style>
+    button{
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        padding: 7px 17px;
+        border-radius: 999px;
+        outline: none;
+        border: none;
+        transition: background-color 0.3s ease;
+        border: 2px solid white;
+        transition: color 0.3s ease-in-out;
+        font-size: 1rem;
+    }
+
+    .text{
+        position: relative;
+        z-index: 10;
+        font-family: Poppins, sans-serif;
+    }
+
+    button:hover{
+        color: white;
+    }
+
+    button:hover .fill-l{
+        left: 0;
+    }
+
+    button:hover .fill-r{
+        right: 0;
+    }
+
+    .fill{
+        position: absolute;
+        background-color: rgb(32, 32, 32);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .fill-l{
+        left: -100%;
+    }
+
+    .fill-r{
+        right: -100%;
+    }
+
+
+</style>

@@ -1,0 +1,57 @@
+<section>
+    <h2>About Us</h2>
+    <div class="container">
+        <div class="photo">
+            <img src="/heroimg.jpg" alt="about us">
+        </div>
+        <div class="text">
+            <h4>Who we Are?</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            <p>Pellentesque adipiscing commodo elit at. Facilisis sed odio morbi quis commodo odio. Porttitor massa id neque aliquam vestibulum morbi blandit. Lectus proin nibh nisl condimentum id. Aenean et tortor at risus. Vel pharetra vel turpis nunc eget lorem dolor.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    section{
+        padding: 0 11%;
+    }
+    h2{
+        text-align: center;
+        font-size: 3rem;
+        display: block;
+        background: linear-gradient(90deg, rgba(163,204,63,1) 0%, rgba(34,120,222,1) 100%);
+        background-clip: text;
+        color: transparent;
+    }
+
+    .container{
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .text, .photo{
+        flex: 1 0 50%;
+
+    }
+
+    .photo img{
+        object-position: center center;
+        object-fit: cover;
+        max-width: 100%;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 150px;
+        border-bottom-left-radius: 150px;
+        border-bottom-right-radius: 20px;
+    }
+
+    h4{
+        font-size: 2rem;
+        color: rgb(85, 84, 84);
+    }
+
+    p{
+        color: rgb(77, 77, 77);
+    }
+</style>
