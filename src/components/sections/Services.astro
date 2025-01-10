@@ -1,0 +1,52 @@
+---
+import RotativeCards from "../RotativeCards.svelte"
+---
+<section>
+    <h2>Our Services</h2>
+    <div class="wrapper">
+        <div class="text">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
+            </p>
+        </div>
+        <RotativeCards client:only/>
+    </div>
+</section>
+
+<style>
+    section{
+        padding: 0 11%;
+        padding-top: 50px;
+    }
+
+    h2{
+        font-size: 3rem;
+        display: block;
+        background: linear-gradient(90deg, rgba(163,204,63,1) -80%, rgba(34,120,222,1) 200%);
+        background-clip: text;
+        color: transparent;
+        width: fit-content;
+        margin-right: auto;
+    }
+
+    .wrapper{
+        display: flex;
+        gap: 30px;
+    }
+
+    .text{
+        flex: 1;
+    }
+</style>
