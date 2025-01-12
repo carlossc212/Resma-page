@@ -1,5 +1,6 @@
 ---
 import RotativeCards from "../RotativeCards.svelte"
+import Button from "../Button.astro";
 ---
 <section>
     <h2>Our Services</h2>
@@ -20,8 +21,40 @@ import RotativeCards from "../RotativeCards.svelte"
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
             </p>
+            <Button class="see-more">See all</Button>
         </div>
-        <RotativeCards client:only/>
+        <div class="services">
+            <RotativeCards 
+            slides={
+                [{
+                    src: "/mobile-dev.jpg",
+                    alt: "Mobile development",
+                    title: "Mobile Apps",
+                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perspiciatis architecto ad natus tempora beatae repudiandae repellat aliquid nihil, hic ut magnam dignissimos minus reprehenderit, quod sint nulla sit nisi."
+                },
+                {
+                    src: "/web-dev.jpg",
+                    alt: "Mobile development",
+                    title: "Web Developement",
+                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perspiciatis architecto ad natus tempora beatae repudiandae repellat aliquid nihil, hic ut magnam dignissimos minus reprehenderit, quod sint nulla sit nisi."
+                },
+                {
+                    src: "/desktop-dev.jpg",
+                    alt: "Mobile development",
+                    title: "Desktop Apps",
+                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perspiciatis architecto ad natus tempora beatae repudiandae repellat aliquid nihil, hic ut magnam dignissimos minus reprehenderit, quod sint nulla sit nisi."
+                },
+                {
+                    src: "/tech-consulting.jpg",
+                    alt: "Mobile development",
+                    title: "Tech Consulting",
+                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perspiciatis architecto ad natus tempora beatae repudiandae repellat aliquid nihil, hic ut magnam dignissimos minus reprehenderit, quod sint nulla sit nisi."
+                }]
+            } 
+            duration={3000} 
+            client:only
+            />
+        </div>
     </div>
 </section>
 
@@ -48,5 +81,18 @@ import RotativeCards from "../RotativeCards.svelte"
 
     .text{
         flex: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+
+    .services{
+        flex: 1;
+    }
+
+    .see-more{
+        min-width: fit-content;
+        width: 20%;
+        margin-left: auto;
     }
 </style>
