@@ -28,7 +28,12 @@
         border: 1px solid black;
         border-radius: 18px;
         position: relative;
-        transition: all 0.4s linear;
+        transition: top 0.6s linear,
+        left 0.6s linear,
+        right 0.6s linear,
+        bottom 0.6s linear,
+        transform 0.6s linear,
+        width 0.6s linear;
         position: absolute;
         display: inline-block;
         min-width: calc(33% - 20px);
@@ -49,6 +54,7 @@
 
     .order-2{
         top: 500px;
+        animation-delay: 5.2s;
     }
 
     .order-3{
