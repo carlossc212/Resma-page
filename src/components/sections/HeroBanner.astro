@@ -57,6 +57,7 @@ import SeoAnalysisIcon from "../icons/SeoAnalysis.astro"
         background-image: url("../../assets/noise.svg" );
         border-top: 2px solid rgba(128, 128, 128, 0.2);
         border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+        gap: 30px;
     }
 
     h3{
@@ -67,7 +68,7 @@ import SeoAnalysisIcon from "../icons/SeoAnalysis.astro"
     }
 
     .card{
-        flex: 0 1 27%;
+        flex: 0 0 320px;
         text-align: center;
         border: 2px solid rgba(103, 103, 141, 0.5);
         font-weight: 300;
@@ -88,5 +89,12 @@ import SeoAnalysisIcon from "../icons/SeoAnalysis.astro"
     .icon{
         margin: 0 auto;
         width: 20%;
+    }
+
+    @media screen and (max-width:576px) {
+        .card{
+            flex-shrink: 1;
+            margin: 0 20px;
+        }
     }
 </style>
