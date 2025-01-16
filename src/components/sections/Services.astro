@@ -12,15 +12,7 @@ import Button from "../Button.astro";
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
             </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto, tempore obcaecati officia dolorem corporis voluptates fugit excepturi commodi nisi sequi mollitia ipsa alias atque quis ullam facere! Aspernatur, voluptatum.
-            </p>
+            
             <Button class="see-more">See all</Button>
         </div>
         <div class="services">
@@ -77,6 +69,8 @@ import Button from "../Button.astro";
     .wrapper{
         display: flex;
         gap: 30px;
+        justify-content: center;
+        align-items: center;
     }
 
     .text{
@@ -94,5 +88,16 @@ import Button from "../Button.astro";
         min-width: fit-content;
         width: 20%;
         margin-left: auto;
+    }
+
+    @media screen and (max-width:992px) {
+        .wrapper{
+            flex-direction: column;
+        }
+
+        .services{
+            width: 100%;
+            font-size: clamp(0.8rem, 0.7rem + 0.483vw, 1rem);
+        }
     }
 </style>

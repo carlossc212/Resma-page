@@ -109,14 +109,13 @@
   .nav {
     height: 5%;
     z-index: 3;
-    width: 80%;
+    width: 100%;
     display: flex;
     gap: 10px;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: calc(100% + 10px);
-    right: 30px;
   }
   .bubble {
     padding: 0;
@@ -143,8 +142,7 @@
   }
   .service {
     box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.35);    border-radius: 20px;
-    width: 80%;
-    margin: 0 30px 0 auto;
+    width: 100%;
     transition: transform 0.3s ease;
     &:hover .image{
       transform: scale(1.2);
@@ -179,7 +177,10 @@
     text-align: center;
     margin: 0;
   }
-  .card-body p {
-    font-size: 1rem;
+  
+  @media screen and (max-width:992px){
+    h5{
+      font-size: clamp(1.2rem, 1.001rem + 0.967vw, 1.6rem);
+    }
   }
 </style>
