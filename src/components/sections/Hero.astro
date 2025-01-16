@@ -9,7 +9,7 @@ import Button from '../Button.astro';
     
     <div class="text">
         <h1>
-            <span>The Path to</span> <br>
+            <span>The Path to</span><br>
             <span>your Digital</span><br>
             <span>Transformation</span>
         </h1>
@@ -28,12 +28,18 @@ import Button from '../Button.astro';
         display: flex;
         padding: 0 11%;
         position: relative;
-        height: 100vh;
-        padding-top: 5;
+        min-height: 100vh;
+        box-sizing: border-box;
+        padding-top: 150px;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 50px;
+        flex-flow: row wrap;
     }
 
     .text, .image{
-        min-width: 50%;
+        flex: 1;
     }
 
     .image img{
@@ -51,18 +57,9 @@ import Button from '../Button.astro';
         z-index: -9999;
         opacity: 0.3;
     }
-
-
-    .text{
-        margin-top: 150px; 
-    }
-
-    .image{
-        margin-top: 150px;
-    }
     
     h1 {
-        font-size: 4rem;
+        font-size: clamp(2.9rem, 0.225rem + 4.314vw, 4rem);
         text-align: left;
         padding: 0;
         margin: 0;
@@ -74,7 +71,40 @@ import Button from '../Button.astro';
 
     h3{
         font-weight: 400;
+        font-size: clamp(1rem, 0.514rem + 0.784vw, 1.2rem);
         padding-right: 70px;
         color: rgba(0, 0, 0, 0.65);
+    }
+
+    @media screen and (max-width:992px){
+        section{
+            padding: 0 5%;
+            padding-top: 150px;
+            max-width: 100%;
+        }
+        .text, .image{
+            flex: 1 1 100%;
+        }
+
+        .image{
+            display: flex;
+            justify-content: center;
+            position: relative;`
+        }
+
+        .image img{
+            width: 60%;
+            margin: 0 auto;
+        }
+    }
+
+    @media screen and (max-width:576px) {
+        h1{
+            font-size: clamp(2.2rem, 1.261rem + 4.553vw, 2.9rem);
+        }
+
+        h3{
+            font-size: clamp(0.9rem, 0.766rem + 0.65vw, 1rem);
+        }
     }
 </style>
