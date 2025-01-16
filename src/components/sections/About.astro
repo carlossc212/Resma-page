@@ -32,11 +32,11 @@
         display: flex;
         gap: 30px;
         justify-content: center;
+        align-items: center;
     }
 
     .text, .photo{
         flex: 1 0 50%;
-
     }
 
     .photo img{
@@ -56,5 +56,20 @@
 
     p{
         color: rgb(77, 77, 77);
+    }
+
+    @media screen and (max-width:992px){
+
+        .container{
+            flex-direction: column;
+        }
+
+        .text, .photo{
+            flex-basis: 100%;
+        }
+
+        .photo img{
+            border-radius: 20px;
+        }
     }
 </style>
