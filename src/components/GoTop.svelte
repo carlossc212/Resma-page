@@ -2,7 +2,6 @@
     
     
     window.addEventListener("scroll", ()=>{
-        console.log("hola");
         if(window.scrollY > 200){
             document.getElementById("go-top")?.classList.add("appear")
         }else{

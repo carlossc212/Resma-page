@@ -1,18 +1,65 @@
 ---
 import Button from './Button.astro';
+
+const links = [
+    {name: "Home", url:""},
+    {name: "About", url:""},
+    {name: "Services", url:""},
+    {name: "Projects", url:""}
+]
 ---
 <div class="header">
     <div class="logo">
         <img src="/favicon.svg" alt="logo">
     </div>
     <ul class="links">
-        <li><a href="javascript:void(0)">Home</a></li>
-        <li><a href="javascript:void(0)">About</a></li>
-        <li><a href="javascript:void(0)">Services</a></li>
-        <li><a href="javascript:void(0)">Projects</a></li>
+        {links.map((link)=> <li><a href={link.url}>{link.name}</a></li>)}
     </ul>
-    <Button>Contact</Button>
+    <Button class="contact">Contact</Button>
+
+    <button class="burguer" id="burguer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
+    </button>
 </div>
+
+<div class="collapsed" id="collapsed">
+    <div class="collapsed-header">
+        <button class="close-nav" id="close-nav">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+            </svg>
+        </button>
+    </div>
+    <ul class="links">
+        {links.map((link)=> <li><a href={link.url}>{link.name}</a></li>)}
+        <Button class="contact">Contact</Button>
+    </ul>
+</div>
+<div class="offcollapsed" id="offcollapsed"></div>
+
+<script>
+    
+    const $collapsed = document.getElementById("collapsed");
+    
+    document.getElementById("burguer")?.addEventListener("click", (ev)=>{
+        $collapsed?.classList.add("show"); 
+    });
+
+    document.getElementById("close-nav")?.addEventListener("click", (ev)=>{
+        $collapsed?.classList.remove("show"); 
+    });
+
+    document.getElementById("offcollapsed")?.addEventListener("click", (ev)=>{
+        $collapsed?.classList.remove("show"); 
+    });
+
+    window.addEventListener("resize", ()=>{
+        if(window.innerWidth > 768) $collapsed?.classList.remove("show");
+        
+    });
+</script>
 
 <style>
     .header {
@@ -24,7 +71,7 @@ import Button from './Button.astro';
         color: rgba(245, 245, 245, 0.9);
         position: fixed;
         width: 100%;
-        z-index: 99999999999;
+        z-index: 100000;
     }
 
     .logo{
@@ -49,5 +96,108 @@ import Button from './Button.astro';
         font-size: 1.1rem;
         color: rgba(245, 245, 245, 0.9);
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.459);
+        transition: color 0.2s linear;
+    }
+
+    .links li a:hover{
+        color: white;
+    }
+
+    .collapsed{
+        background-color: rgb(100, 153, 189);        
+        position: fixed;
+        box-sizing: border-box;
+        display: none;
+        width: 80%;
+        max-width: 250px;
+
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 999999;
+        transform: translate(100%);
+    }
+
+    .collapsed .links{
+        display: flex;
+        flex-flow: column nowrap;
+        box-sizing: border-box;
+        margin: 0;
+        margin-top: 30px;
+        gap: 5px;
+    }
+
+    .burguer{
+        background: none;
+        border: none;
+        color: white;
+        display: none;
+    }
+
+    @media screen and (max-width:768px) {
+        .header{
+            box-sizing: border-box;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .header .links, .header .contact{
+            display: none;
+        }
+
+        .collapsed{
+            display: block;
+            transition: transform 0.3s linear;
+            padding: 5px;
+        }
+
+        .offcollapsed{
+            position: fixed;
+            transition: background-color 0.2s ease;
+        }
+
+        .collapsed.show + .offcollapsed{
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.219);
+            z-index: 999998;
+        }
+
+        .collapsed.show{
+            transform: translate(0);
+        }
+
+        .contact{
+            margin-top: 30px;
+        }
+
+        .burguer{
+            display: block;
+            cursor: pointer;
+        }
+
+        .close-nav{
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .close-nav svg{
+            height: 25px;
+            width: 25px;
+        }
+
+        .burguer, .close-nav{
+            transition: transform 0.1s linear;
+        }
+
+        .burguer:hover, .close-nav:hover{
+            transform: scale(1.1);
+        }
     }
 </style>
