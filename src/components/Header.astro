@@ -16,7 +16,7 @@ const links = [
     <ul class="links">
         {links.map((link)=> <li><a href={link.url}>{link.name}</a></li>)}
     </ul>
-    <Button class="contact">Contact</Button>
+    <Button class="contact" data-open="modal">Contact</Button>
 
     <button class="burguer" id="burguer">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -35,7 +35,7 @@ const links = [
     </div>
     <ul class="links">
         {links.map((link)=> <li><a href={link.url}>{link.name}</a></li>)}
-        <Button class="contact">Contact</Button>
+        <Button class="contact" data-open="modal">Contact</Button>
     </ul>
 </div>
 <div class="offcollapsed" id="offcollapsed"></div>
@@ -64,7 +64,7 @@ const links = [
         
     });
 
-    document.querySelectorAll(".contact").forEach((el)=>{
+    document.querySelectorAll(".contact[data-open=modal]").forEach((el)=>{
         el.addEventListener("click", (ev)=>{contactModal.setVisible(true)});
     });
 </script>
