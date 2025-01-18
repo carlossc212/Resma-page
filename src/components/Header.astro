@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import ContactModal from './ContactModal.svelte';
 
 const links = [
     {name: "Home", url:"#home"},
@@ -38,8 +39,11 @@ const links = [
     </ul>
 </div>
 <div class="offcollapsed" id="offcollapsed"></div>
+<ContactModal client:load />
 
 <script>
+
+    import { contactModal } from "../store/modal";
     
     const $collapsed = document.getElementById("collapsed");
     
@@ -58,6 +62,10 @@ const links = [
     window.addEventListener("resize", ()=>{
         if(window.innerWidth > 768) $collapsed?.classList.remove("show");
         
+    });
+
+    document.querySelectorAll(".contact").forEach((el)=>{
+        el.addEventListener("click", (ev)=>{contactModal.setVisible(true)});
     });
 </script>
 
@@ -136,6 +144,7 @@ const links = [
 
     .contact{
         color: black;
+        text-align: center;
     }
 
     @media screen and (max-width:768px) {
