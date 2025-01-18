@@ -6,9 +6,9 @@
   export let slides;
 
   let currentSlide = 0;
-  let sliderElement; // Referencia al contenedor del slider
+  let sliderElement; 
+  let interval;
 
-  // Función para ir al siguiente slide
   const nextSlide = () => {
     currentSlide++;
     if (currentSlide >= slides.length) {
@@ -17,19 +17,17 @@
     timer();
   };
 
-  // Función para ir a un slide específico
   const goToSlide = (i) => {
     currentSlide = i;
-    timer();
+    clearInterval(interval);
   };
 
-  let interval;
+  
   const timer = () => {
     clearInterval(interval);
     interval = setInterval(nextSlide, duration);
   };
 
-  // Función para actualizar la altura del slider
   const updateSliderHeight = () => {
     const activeSlide = document.querySelector(`#service-${currentSlide}`);
     if (activeSlide && sliderElement) {
@@ -39,21 +37,17 @@
     }
   };
 
-  // Llamar a la función después de montar el componente
   onMount(() => {
     updateSliderHeight();
     timer();
 
-    // Escuchar el redimensionamiento de la ventana
     window.addEventListener("resize", updateSliderHeight);
   });
 
-  // Limpiar el evento cuando el componente se destruya
   onDestroy(() => {
     window.removeEventListener("resize", updateSliderHeight);
   });
 
-  // Actualizar la altura después de cada cambio en currentSlide
   tick().then(() => {
     updateSliderHeight();
   });
